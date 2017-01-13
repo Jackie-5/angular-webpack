@@ -1,0 +1,28 @@
+{
+  "code": 200,
+  "msg": {
+    "menuList": [
+      {
+        "code": "midas.web.kepler_93bf0b681e4557e6637ae1e14e853819",
+        "createTime": 1454472090,
+        "id": 108775,
+        "menus": [
+          {
+            "code": "midas.web.kepler_f9c3a3748007952867dd5d11a813f193",
+            "createTime": 1464775283,
+            "id": 110101,
+            "menus": [],
+            "sort": 10007,
+            "title": "广告产品",
+            "type": 1,
+            "url": "/midas/kepler/publish/indexAction#/index/cpc?i=5&hide=1"
+          }
+        ],
+        "sort": 9999,
+        "title": "整体概览",
+        "type": 1,
+        "url": "/midas/kepler/indexAction#/index?i=0&secondary=1"
+      }
+    ]
+  }
+}

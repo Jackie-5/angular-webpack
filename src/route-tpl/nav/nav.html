@@ -1,0 +1,33 @@
+<div class="kepler-nav-box">
+    <div class="kepler-nav">
+        <div class="nav-scaling">
+            <span class="glyphicon glyphicon-menu-hamburger"></span>
+        </div>
+        <div class="nav-box" append-source>
+            <div class="panel-group" ng-model="activePanels" role="tablist" aria-multiselectable="true" bs-collapse
+                 allowMultiple="true">
+                <div class="nav-menu" ng-repeat="item in menuList">
+                    <div class="panel-heading" role="tab" ng-hide="item.hide">
+                        <a href="javascript:void(0)"
+                           bs-collapse-toggle
+                           ng-click="listClick(this,$event)"
+                           ng-class="{true: 'btn-title accordion-toggle active', false: 'btn-title accordion-toggle'}[item.menuActive]">
+                            <i class="icon {{item.indexIcon}}"></i>
+                            <span ng-bind="item.title"></span>
+                            <i ng-show="item.menus.length > 0"
+                               ng-class="{true: 'subtitle-icon pull-right glyphicon glyphicon-triangle-bottom', false: 'subtitle-icon pull-right glyphicon glyphicon-triangle-right'}[item.isOpen]"></i>
+                        </a>
+                    </div>
+                    <div class="subTitle" ng-show="item.menus.length > 0" isopen="{{item.isOpen}}" bs-collapse-target>
+                        <a href="javascript:void(0)" role="tabpanel"   ng-click="subTitleBtn(this,$event)" ng-hide="it.subHide" ng-class="{true:'sub-active', false:''}[it.subMenuActive]" ng-repeat="it in item.menus">
+                            <div class="subtitles">
+                                <i class="icon {{it.subIndexIcon}}"></i>
+                                <span ng-bind="it.title"></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

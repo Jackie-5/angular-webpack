@@ -1,0 +1,75 @@
+body {
+    background: #f6f6f6;
+}
+
+a, button, div {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    &:link {
+        -webkit-tap-highlight-color: transparent;
+        outline: none;
+    }
+}
+.datepicker {
+    line-height:25px !important;
+    button {
+        border:0;
+    }
+}
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+.header-name-open {
+    min-width: 120px;
+    text-align: center;
+}
+
+.kepler-content {
+    padding: 60px 0 30px 190px;
+    min-width: 1200px;
+    .kepler-content-box {
+        background: #fff;
+        padding-left: 10px;
+    }
+}
+
+.datepicker {
+    button {
+        border:0;
+    }
+}
+.modal-backdrop.am-fade {
+    opacity: .5;
+    transition: opacity .15s linear;
+    &.ng-enter {
+        opacity: 0;
+        &.ng-enter-active {
+            opacity: .5;
+        }
+    }
+    &.ng-leave {
+        opacity: .5;
+        &.ng-leave-active {
+            opacity: 0;
+        }
+    }
+}
+.visibility{
+    visibility: hidden!important;
+}
+.dropdown-menu {
+    z-index:10000
+}
+@orange:#f60;
+@green:#46b56b;
+
+
+.modal-box {
+    z-index: 99999999 !important;
+}

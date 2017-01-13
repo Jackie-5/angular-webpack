@@ -1,0 +1,169 @@
+.ngn {
+    color: #FFF;
+    cursor: default;
+    display: none;
+    font-size: 1.6rem;
+    opacity: 1;
+    right: 15px;
+    height: 50px;
+    line-height:50px;
+    position: fixed;
+    text-align: center;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    z-index: 99999999999;
+    padding:0 40px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.ngn-top {
+    top: 60px;
+}
+
+.ngn-bottom {
+    bottom: 0
+}
+
+.ngn-dismiss {
+    color: #333;
+    cursor: pointer;
+    display: none;
+    font-size: 1.25em;
+    font-weight: 700;
+    height: 30px;
+    line-height: 26px;
+    opacity: .2;
+    position: absolute;
+    right: 5px;
+    top:10px;
+    width: 30px;
+}
+
+.ngn-sticky .ngn-dismiss {
+    display: block
+}
+
+.ngn-dismiss:hover {
+}
+
+.ngn-dismiss:active {
+
+}
+
+@media only screen and (max-width: 480px) {
+    .ngn {
+        font-size: 1em;
+        padding: 12px 25px
+    }
+
+    .ngn-dismiss {
+        font-size: 1em;
+        height: 20px;
+        line-height: 20px;
+        right: 5px;
+        top: 5px;
+        width: 20px
+    }
+}
+
+.ngn-info {
+    background-color: #d9edf7;
+    color:#31708f;
+}
+
+.ngn-error {
+    background-color:#fb514c;
+}
+.ngn-error .icon{
+    background: url(../../images/error.png) 40px 30px no-repeat rgba(0,0,0,.5);
+    width: 100px;
+    height:100%;
+    display:block;
+    float:left;
+}
+
+.ngn-success {
+    background-color: #5eb95e
+}
+
+.ngn-warn {
+    background-color:#f9f22d;
+    color:#1c3464;
+}
+.ngn-warn .icon{
+    background: url(../../images/warn.png) 40px 30px no-repeat rgba(0,0,0,.5);
+    width: 100px;
+    height:100%;
+    display:block;
+    float:left;
+}
+
+.ngn-grimace {
+    background-color: #8058a5
+}
+
+.ngn-prime.ngn-info {
+    background-color: #03c
+}
+
+.ngn-prime.ngn-error {
+    background-color: red
+}
+
+.ngn-prime.ngn-success {
+    background-color: #0c0
+}
+
+.ngn-prime.ngn-warn {
+    background-color: #f90
+}
+
+.ngn-prime.ngn-grimace {
+    background-color: #609
+}
+
+.ngn-pastel.ngn-info {
+    background-color: #7EA7D8
+}
+
+.ngn-pastel.ngn-error {
+    background-color: #F6989D
+}
+
+.ngn-pastel.ngn-success {
+    background-color: #82CA9D
+}
+
+.ngn-pastel.ngn-warn {
+    background-color: #FDC68A
+}
+
+.ngn-pastel.ngn-grimace {
+    background-color: #A187BE
+}
+
+.ngn-pitchy.ngn-info {
+    background-color: #003471
+}
+
+.ngn-pitchy.ngn-error {
+    background-color: #9E0B0F
+}
+
+.ngn-pitchy.ngn-success {
+    background-color: #007236
+}
+
+.ngn-pitchy.ngn-warn {
+    background-color: #A36209
+}
+
+.ngn-pitchy.ngn-grimace {
+    background-color: #440E62
+}

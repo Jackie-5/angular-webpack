@@ -1,0 +1,141 @@
+<div class="container-index" ng-controller="indexController">
+    <div class="header-box clearfix">
+        <div class="field-box clearfix pull-left">
+            <div class="field-title clearfix">
+                <div class="field-title-icon"></div>
+                <span>数据时间</span>
+            </div>
+        </div>
+        <div class="header-time pull-left clearfix">
+            <div class="yesterday pull-left">
+                <span>昨日</span>
+                <span ng-bind="headerYesterday"></span>
+            </div>
+            <div class="day pull-left">
+                <span>今日</span>
+                <span ng-bind="headerDay"></span>
+            </div>
+        </div>
+        <div class="global-select pull-right">
+            <div class="header-select-left">
+                <button type="button" placeholder="请选择..." placement="bottom-left" class="btn btn-default" ng-model="indexHeaderSelectModel" data-toggle="true" bs-options="item.key as item.value for item in indexHeaderSelect" bs-select>
+                    <span class="caret"></span>
+                </button>
+            </div>
+            <div class="header-select-right">
+                <button type="button" placeholder="请选择..." placement="bottom-right" class="btn btn-default" ng-model="indexHeaderBuSelectModule" data-toggle="true" bs-options="item.dictItemCode as item.dictItemName for item in indexHeaderBuSelect" bs-select>
+                    <span class="caret"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="index-monitoring clearfix">
+        <div class="field-box clearfix">
+            <div class="field-title clearfix">
+                <div class="field-title-icon"></div>
+                <span>监控报警</span>
+            </div>
+            <div class="view-monitoring pull-left" ng-show="isRadarUserExit" data-animation="am-fade-and-slide-top" ng-click="monitoringClick()">查看监控设置</div>
+        </div>
+        <div class="monitor-number" ng-show="isRadarUserExit && radarMonitorList.length > 0">有<span>{{radarMonitorList.length}}条</span>报警消息</div>
+        <div class="monitoring-container">
+            <div class="set-monitoring" ng-hide="isRadarUserExit" data-animation="am-fade-and-slide-top" ng-click="monitoringClick()">+设置监控对象</div>
+            <div class="normal-monitoring" ng-show="isRadarUserExit && radarMonitorList.length === 0">各项指标运行正常，请放心工作</div>
+            <div class="monitor-box" ng-show="isRadarUserExit && radarMonitorList.length > 0">
+                <ul class="title">
+                    <li class="child-1">监控对象</li>
+                    <li class="child-2">广告位</li>
+                    <li class="child-3">BU</li>
+                    <li class="child-4">城市</li>
+                    <li class="child-5">昨日数值</li>
+                    <li class="child-6">昨日周环比</li>
+                    <li ng-show="false">实时数值</li>
+                    <li ng-show="false">实时周环比</li>
+                    <li class="child-7">数据详情</li>
+                </ul>
+                <div class="data-scroll">
+                    <ul ng-repeat="item in radarMonitorList">
+                        <li class="child-1" ng-bind="item.indicatortypeView"></li>
+                        <li class="child-2" ng-bind="item.advName" data-trigger="hover" placement="top-left" data-title="{{item.advName}}" bs-tooltip></li>
+                        <li class="child-3" ng-bind="item.buName"></li>
+                        <li class="child-4" ng-bind="item.cityName"></li>
+                        <li class="child-5" ng-bind="item.currentvalueView">昨日数值</li>
+                        <li class="child-6" ng-class="{true: 'green', false:''}[item.yesterGreen]" ng-bind="item.w1_ratioView">昨日周环比</li>
+                        <li ng-show="false">实时数值</li>
+                        <li ng-show="false">实时周环比</li>
+                        <li class="child-7 view" ng-click="monitoringView(item)">查看</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="indicators-box clearfix ">
+        <div class="field-box clearfix">
+            <div class="field-title clearfix">
+                <div class="field-title-icon"></div>
+                <span>关键指标</span>
+            </div>
+        </div>
+        <div ng-class="{true: 'indicators-content indicators-height', false: 'indicators-content'}[indexData]">
+            <ul ng-repeat="it in indicators">
+                <li ng-repeat="item in it" ng-class="{true:'', false:'visibility'}[item.visibility]">
+                    <div class="data-title" data-trigger="hover" placement="top-left" data-title="{{item.tips}}" bs-tooltip>
+                        <div class="title" ng-bind="item.title"></div>
+                        <div class="sub-title" ng-show="item.subTitle" ng-bind="item.subTitle"></div>
+                    </div>
+                    <div class="real-time">
+                        <div class="time-tips">实时</div>
+                        <div class="number {{item.realData.isOrange}}" ng-bind="item.realData.dayGrowValue ? item.realData.dayGrowValue : '--'"></div>
+                        <div class="proportion">
+                            <div class="day">
+                                <span ng-bind="item.realData.dayGrow ? item.realData.dayGrow : '--'"></span>
+                                <span>(日环比)</span>
+                            </div>
+                            <div class="weeks">
+                                <span ng-bind="item.realData.weekGrow ? item.realData.weekGrow : '--'"></span>
+                                <span>(周同比)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="yesterday-time">
+                        <div class="time-tips">昨日</div>
+                        <div class="number {{item.historyData.isOrange}}" ng-bind="item.historyData.yestValue ? item.historyData.yestValue : '--'"></div>
+                        <div class="proportion">
+                            <div class="day">
+                                <span ng-bind="item.historyData.dayGrow ? item.historyData.dayGrow : '--'"></span>
+                                <span>(日环比)</span>
+                            </div>
+                            <div class="weeks">
+                                <span ng-bind="item.historyData.weekGrow ? item.historyData.weekGrow : '--'"></span>
+                                <span>(周同比)</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="button-more" ng-click="indexDataMore()">
+            <span ng-bind="indexData ? '展开更多产品分析指标' : '收起更多产品分析指标'"></span>
+            <i ng-class="{true: 'caret', false: 'caret rotating'}[indexData]"></i>
+        </div>
+    </div>
+
+    <div class="charts-box clearfix">
+        <div class="field-box clearfix">
+            <div class="field-title clearfix">
+                <div class="field-title-icon"></div>
+                <span>数据图表</span>
+            </div>
+            <button type="button" placeholder="请选择..." placement="bottom-right" class="btn btn-default pull-right" ng-model="chartsSelectModule" data-html="1" data-toggle="true" bs-options="item.key as item.value for item in chartsSelect" bs-select>
+                <span class="caret"></span>
+            </button>
+        </div>
+        <div class="echarts">
+            <ng-echarts class="col-md-6 echarts" ec-config="lineConfig" ec-option="lineOption" ></ng-echarts>
+        </div>
+    </div>
+</div>
+
+<script src="../../../../js/controllers/index/cpc/cpc-index-config.js" seq="0"></script>
+<script src="../../../../js/controllers/index/cpc/cpc-index-controller.js" seq="1"></script>

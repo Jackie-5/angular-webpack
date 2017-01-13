@@ -1,0 +1,164 @@
+<div class="modal index-modal ng-scope top am-fade-and-slide-top" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" aria-label="Close" ng-click="monitoringClose($hide)"><span
+                        aria-hidden="true">×</span></button>
+                <h4 class="modal-title ng-binding">监控设置<span>(监控数据异常时为您报警)</span></h4>
+            </div>
+            <div class="modal-body ng-binding">
+                <div class="monitoring-box">
+                    <div class="field-box clearfix">
+                        <div class="field-title clearfix">
+                            <div class="field-title-icon"></div>
+                            <span>选择监控对象</span>
+                        </div>
+                    </div>
+                    <div class="monitoring-obj clearfix">
+                        <div class="m-title pull-left">收入:</div>
+                        <div class="m-container pull-left">
+                            <label>
+                                <input type="checkbox" ng-checked="cashChecked"  ng-click="cashAll()">
+                                <span>全选</span>
+                            </label>
+                            <label ng-repeat="item in indexMonitoring.cash">
+                                <input type="checkbox" ng-checked="item.checked" ng-model="item.module" ng-click="cashChange(item.module)">
+                                <span ng-bind="item.value"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="monitoring-obj clearfix">
+                        <div class="m-title pull-left">流量:</div>
+                        <div class="m-container pull-left">
+                            <label>
+                                <input type="checkbox" ng-checked="trafficChecked" ng-click="trafficAll()">
+                                <span>全选</span>
+                            </label>
+                            <label ng-repeat="item in indexMonitoring.traffic">
+                                <input type="checkbox" ng-checked="item.checked" ng-model="item.module" ng-click="trafficChange(item.module)">
+                                <span ng-bind="item.value"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="monitoring-obj clearfix">
+                        <div class="m-title pull-left">选择监控对象:</div>
+                        <div class="m-container pull-left">
+                            <div class="obj-select">
+                                <label>
+                                    <input type="checkbox" ng-model="cityChecked" ng-click="cityClick()">
+                                    <span>城市</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" ng-checked="true" ng-disabled="true">
+                                    <span>广告位</span>
+                                </label>
+                            </div>
+                            <div class="m-adv-select">
+                                <div class="select-title clearfix">
+                                    <div class="field-cont">
+                                        <div class="field-title">平台</div>
+                                        <div  class="pull-left field-select form-control">
+                                            <div
+                                                    class="field-control pull-left"
+                                                    isteven-multi-select
+                                                    input-model="advEntry"
+                                                    output-model="advOut"
+                                                    button-label="name"
+                                                    item-label="name"
+                                                    tick-property="ticked"
+                                                    max-labels="1"
+                                                    translation="localLang"
+                                                    max-height="300px"
+                                                    on-close="advClose('advEntry')"
+                                                    on-item-click="advClick(data)"
+                                            >
+                                            </div>
+                                            <i class="caret pull-right icon"></i>
+                                        </div>
+                                    </div>
+                                    <div class="field-cont">
+                                        <div class="field-title">媒体</div>
+                                        <div  class="pull-left field-select form-control">
+                                            <div
+                                                    class="field-control pull-left"
+                                                    isteven-multi-select
+                                                    input-model="mediaEntry"
+                                                    output-model="mediaOut"
+                                                    button-label="icon name"
+                                                    item-label="icon name maker"
+                                                    tick-property="ticked"
+                                                    max-labels="1"
+                                                    max-height="300px"
+                                                    translation="localLang"
+                                                    on-close="mediaClose('mediaEntry')"
+                                                    on-item-click="mediaClick(data)"
+                                            >
+                                            </div>
+                                            <i class="caret pull-right icon"></i>
+                                        </div>
+                                    </div>
+                                    <div class="field-cont">
+                                        <div class="field-title">站内外</div>
+                                        <div  class="pull-left field-select form-control">
+                                            <div
+                                                    class="field-control pull-left"
+                                                    isteven-multi-select
+                                                    input-model="otherEntry"
+                                                    output-model="otherOut"
+                                                    button-label="icon name"
+                                                    item-label="icon name maker"
+                                                    tick-property="ticked"
+                                                    max-labels="1"
+                                                    max-height="300px"
+                                                    translation="localLang"
+                                                    on-close="otherClose('otherEntry')"
+                                                    on-item-click="otherClick(data)"
+                                            >
+                                            </div>
+                                            <i class="caret pull-right icon"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="select-content">
+                                    <div ng-class="{true:'content-box content-box-height',false:'content-box'}[contentShow]">
+                                        <label>
+                                            <input type="checkbox" ng-checked="avdChecked" ng-click="contentAllClick()" >
+                                            <span>全选</span>
+                                        </label>
+                                        <label ng-repeat="item in indexMonitoring.slotId">
+                                            <input type="checkbox" ng-checked="item.checked" ng-model="item.module" ng-click="slotChange(item.module)">
+                                            <span ng-bind="item.value" data-trigger="hover" placement="top-left" data-title="{{item.value}}" bs-tooltip></span>
+                                        </label>
+                                    </div>
+                                    <div class="select-btn" ng-click="contentShowBtn()">
+                                        <span>展开全部广告位</span>
+                                        <i class="caret"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monitoring-obj clearfix">
+                        <div class="m-title pull-left">消息推送:</div>
+                        <div class="m-container pull-left">
+                            <div class="obj-select">
+                                <label>
+                                    <input type="checkbox" ng-model="pushFlag" ng-click="pushElephant()">
+                                    <span>接收大象报警信息(开发中)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" ng-click="monitoringConfirm($hide)">确认设置</button>
+                <button type="button" class="btn btn-default" ng-click="monitoringClose($hide)">取消设置</button>
+            </div>
+        </div>
+    </div>
+</div>

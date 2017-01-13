@@ -1,0 +1,145 @@
+.kepler-header {
+    height: 51px;
+    width: 100%;
+    background: #0198cb;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999999;
+    .header-left {
+        float: left;
+        height: 50px;
+        .logo {
+            width: 135px;
+            height: 100%;
+            background: url(../../images/logo.png) no-repeat;
+            background-size: 100%;
+        }
+    }
+    .header-right {
+        float: right;
+        height: 50px;
+        oi-select .select-search-list-item {
+            overflow: hidden;
+            margin-right: 22px;
+        }
+        a, .dictionary {
+            width: 120px;
+            text-align: center;
+            display: block;
+            float: left;
+            line-height: 50px;
+            color: #fff;
+            padding: 0 20px;
+            border-left: 1px solid #0187b4;
+            text-decoration: none;
+            cursor: pointer;
+            position:relative;
+            &:hover {
+                background: #0087b4;
+            }
+            i {
+                transition: transform 0.2s, vertical-align 0.2s;
+                -o-transition: transform 0.2s, vertical-align 0.2s;
+                -moz-transition: transform 0.2s, vertical-align 0.2s;
+                -webkit-transition: transform 0.2s, vertical-align 0.2s;
+            }
+            .transform {
+                -webkit-transform: rotate(180deg);
+            }
+            .new {
+                color:#ff0000;
+                position:absolute;
+                top:0;
+                left:0;
+                line-height: 20px;
+            }
+        }
+        button {
+            background: transparent;
+            border: 0;
+            padding: 0;
+            margin: 0;
+        }
+        .header-name {
+            float: left;
+            span {
+                display: inline-block;
+                vertical-align: middle;
+                width: 60px;
+                overflow: hidden;
+            }
+        }
+        .search-box {
+            width: 295px;
+            padding-top: 8px;
+            margin-right: 10px;
+            transition: 300ms;
+            -webkit-transition: 300ms;
+            -moz-transition: 300ms;
+            -ms-transition: 300ms;
+        }
+        .search-box-width {
+            width: 400px;
+        }
+        .user-popover{
+            left:auto!important;
+            right:0;
+            width: 120px;
+            border-radius: 0;
+            background: #0198cb;
+            border:1px solid #0087b4;
+            border-right: 0;
+            .popover-content {
+                padding: 2px;
+                overflow: hidden;
+            }
+            .menuitem {
+                border-left: 0;
+                width: 120px;
+                height: 30px;
+                line-height: 30px;
+                color: #fff;
+                &:hover {
+                    background: #0087b4;
+                }
+            }
+        }
+    }
+
+}
+
+.header-modal {
+    z-index: 99999999 !important;
+    .modal-content{
+        .modal-header{
+            padding: 7px;
+        }
+    }
+    .header-search-data {
+        width: 800px;
+        .modal-content {
+            .modal-title {
+                span {
+                    font-size: 1rem;
+                    font-weight: 100;
+                    margin-left: 10px;
+                    color: #999;
+                }
+            }
+            .modal-body {
+                .search-body {
+                    padding: 10px;
+                    span:first-child{
+                        width: 60px;
+                        margin-right: 10px;
+                        text-align: right;
+                        display:inline-block;
+                    }
+                }
+            }
+
+        }
+    }
+
+}
